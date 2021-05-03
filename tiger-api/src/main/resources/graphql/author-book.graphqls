@@ -1,0 +1,30 @@
+# ------
+# Tiger
+
+type Tiger {
+    id: ID!
+    name: String!
+    dateOfBirth: String!
+    lastSeenAt: String!
+    lastSeenCoordinates: String!
+}
+
+input CreateTigerInput {
+    name: String!
+    dateOfBirth: String!
+    lastSeenAt: String!
+    lastSeenCoordinates: String!
+}
+
+
+# ---
+
+type Query {
+    getAllTigers: [Tiger!]!
+}
+
+# ---
+
+type Mutation {
+    createTiger(tigerInput: CreateTigerInput!): Tiger!
+}

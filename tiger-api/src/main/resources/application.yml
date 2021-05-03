@@ -1,0 +1,54 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/tigerhallkittensdb?characterEncoding=UTF-8&serverTimezone=UTC
+    username: tigerhalluser
+    password: tigerhallpass
+  sleuth:
+    sampler.probability: 1.0
+
+app:
+  cors:
+    allowed-origins: http://localhost:3000
+
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        loggerLevel: basic
+
+graphql: # default values
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+graphiql: # default values
+  mapping: /graphiql
+  endpoint:
+    graphql: /graphql
+  enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure.include: beans, env, health, info, metrics, mappings
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    groups-order: DESC
+
+logging:
+  level:
+    org.hibernate:
+      SQL: DEBUG
+      type.descriptor.sql.BasicBinder: TRACE
+    com.tigerhall.authorbookapi.client.BookReviewApiClient: DEBUG
