@@ -14,8 +14,8 @@ public class TigerResolver implements GraphQLResolver<Tiger> {
 
     private final TigerService tigerService;
 
-    public List<Tiger> getAllTigers() {
-        return tigerService.getAllTigers();
+    public List<Tiger> getTigers() {
+        return tigerService.getTigers();
     }
 
 }

@@ -22,8 +22,8 @@ public class TigerController {
     private final TigerMapper tigerMapper;
 
     @GetMapping
-    public List<TigerDto> getAllTigers() {
-        return tigerService.getAllTigers()
+    public List<TigerDto> getTigers() {
+        return tigerService.getTigers()
                 .stream()
                 .map(tigerMapper::toTigerDto)
                 .collect(Collectors.toList());

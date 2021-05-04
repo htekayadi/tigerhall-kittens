@@ -85,7 +85,8 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
   1. Get all tigers in `tiger-api`.
      ```
      {
-       getAllTigers {
+       getTigers {
+         id
          name
          dateOfBirth
          lastSeen
@@ -106,7 +107,7 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
   1. Get all tiger sightingss in `tiger-api`.
      ```
      {
-       getAllTigerSightings {
+       getTigerSightings(tigerId: 1) {
          seen
          coordinates
        }

@@ -20,15 +20,15 @@ public class Query implements GraphQLQueryResolver {
     // ------
     // Tiger
 
-    public List<Tiger> getAllTigers() {
-        return tigerService.getAllTigers();
+    public List<Tiger> getTigers() {
+        return tigerService.getTigers();
     }
 
     // ------
     // TigerSighting
 
-    public List<TigerSighting> getAllTigerSightings() {
-        return tigerSightingService.getAllTigerSightings();
+    public List<TigerSighting> getTigerSightings(Long tigerId) {
+        return tigerSightingService.getTigerSightings(tigerId);
     }
 
 }

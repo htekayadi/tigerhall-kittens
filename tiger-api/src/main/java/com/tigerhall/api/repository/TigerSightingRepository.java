@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TigerSightingRepository extends JpaRepository<TigerSighting, Long> {
 
-    List<TigerSighting> findAllByOrderBySeenDesc();
+    List<TigerSighting> findAllByTigerIdOrderBySeenDesc(Long tigerId);
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString(exclude = "tiger")
 @EqualsAndHashCode(exclude = "tiger")
 @Entity
-@Table(name = "tiger_sighting")
+@Table(name = "tiger_sightings")
 public class TigerSighting {
 
     @Id

@@ -19,6 +19,8 @@ import java.time.LocalDateTime;
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
+    private final Integer NEW_SIGHTING_MININUM_DISTANCE = 5;
+
     private final TigerService tigerService;
     private final TigerSightingService tigerSightingService;
     private final TigerMapper tigerMapper;
@@ -44,6 +46,7 @@ public class Mutation implements GraphQLMutationResolver {
         tigerService.saveTiger(tiger);
 
         TigerSighting tigerSighting = tigerSightingMapper.toTigerSighting(tigerSightingInput);
+        tigerSighting.setTiger(tiger);
         return tigerSightingService.saveTigerSighting(tigerSighting);
     }
 
@@ -57,8 +60,8 @@ public class Mutation implements GraphQLMutationResolver {
 
         double dis = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
-        if (dis < 5) {
-            throw new TigerSightingException(String.format("Tiger sighting is within 5 kilometers of previous sighting."));
+        if (dis < NEW_SIGHTING_MININUM_DISTANCE) {
+            throw new TigerSightingException(String.format("Tiger sighting is within %d kilometers of previous sighting.", NEW_SIGHTING_MININUM_DISTANCE));
         }
     }
 }

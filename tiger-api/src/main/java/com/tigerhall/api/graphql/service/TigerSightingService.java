@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TigerSightingService {
 
-    List<TigerSighting> getAllTigerSightings();
+    List<TigerSighting> getTigerSightings(Long tigerId);
 
     TigerSighting saveTigerSighting(TigerSighting tigerSighting);
 

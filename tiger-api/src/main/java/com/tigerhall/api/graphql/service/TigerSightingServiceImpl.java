@@ -1,6 +1,5 @@
 package com.tigerhall.api.graphql.service;
 
-import com.tigerhall.api.model.Tiger;
 import com.tigerhall.api.model.TigerSighting;
 import com.tigerhall.api.repository.TigerSightingRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +11,11 @@ import java.util.List;
 @Service("GraphQLTigerSightingServiceImpl")
 public class TigerSightingServiceImpl implements TigerSightingService {
 
-    private final TigerService tigerService;
-
     private final TigerSightingRepository tigerSightingRepository;
 
     @Override
-    public List<TigerSighting> getAllTigerSightings() {
-        return tigerSightingRepository.findAllByOrderBySeenDesc();
+    public List<TigerSighting> getTigerSightings(Long tigerId) {
+        return tigerSightingRepository.findAllByTigerIdOrderBySeenDesc(tigerId);
     }
 
     @Override

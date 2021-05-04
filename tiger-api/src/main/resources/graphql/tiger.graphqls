@@ -35,8 +35,8 @@ input CreateTigerSightingInput {
 # ---
 
 type Query {
-    getAllTigers: [Tiger!]!
-    getAllTigerSightings: [TigerSighting!]!
+    getTigers: [Tiger!]!
+    getTigerSightings(tigerId: ID!): [TigerSighting!]!
 }
 
 # ---

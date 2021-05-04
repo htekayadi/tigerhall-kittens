@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TigerService {
 
-    List<Tiger> getAllTigers();
+    List<Tiger> getTigers();
 
     Tiger findById(Long id);
 
