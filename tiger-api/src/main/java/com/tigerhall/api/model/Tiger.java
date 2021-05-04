@@ -3,6 +3,7 @@ package com.tigerhall.api.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,8 +18,8 @@ public class Tiger {
     @Column(nullable = false)
     private String name;
 
-    private String dateOfBirth;
-    private String lastSeenAt;
+    private LocalDate dateOfBirth;
+    private LocalDateTime lastSeen;
     private String lastSeenCoordinates;
 
     private LocalDateTime createdAt;

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class CreateTigerDto {
 
-    @Schema(example = "Craig Walls")
+    @Schema(example = "Kitty Purry")
     @NotBlank
     private String name;
 

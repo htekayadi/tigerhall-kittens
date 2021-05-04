@@ -5,14 +5,14 @@ type Tiger {
     id: ID!
     name: String!
     dateOfBirth: String!
-    lastSeenAt: String!
+    lastSeen: String!
     lastSeenCoordinates: String!
 }
 
 input CreateTigerInput {
     name: String!
     dateOfBirth: String!
-    lastSeenAt: String!
+    lastSeen: String!
     lastSeenCoordinates: String!
 }
 

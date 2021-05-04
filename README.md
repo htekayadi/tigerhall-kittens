@@ -75,7 +75,7 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
   1. Create an tiger and return its id
      ```
      mutation {
-       createTiger(tigerInput: {name: "Samer Buna", dateOfBirth: "01-01-2020", lastSeenAt: "05-05-2020", lastSeenCoordinates:"3.162456/28.561538"}) {
+       createTiger(tigerInput: {name: "Samer Buna", dateOfBirth: "2020-12-31", lastSeen: "2021-05-01T10:11:30", lastSeenCoordinates:"3.162456/28.561538"}) {
          id
          name
        }
@@ -88,7 +88,7 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
        getAllTigers {
          name
          dateOfBirth
-         lastSeenAt
+         lastSeen
          lastSeenCoordinates
        }
      }

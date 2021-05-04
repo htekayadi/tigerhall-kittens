@@ -15,7 +15,7 @@ public class TigerServiceImpl implements TigerService {
 
     @Override
     public List<Tiger> getAllTigers() {
-        return tigerRepository.findAll();
+        return tigerRepository.findAllByOrderByLastSeenDesc();
     }
 
     @Override

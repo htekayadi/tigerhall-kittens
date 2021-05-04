@@ -7,6 +7,6 @@ public class TigerInput {
 
     private String name;
     private String dateOfBirth;
-    private String lastSeenAt;
+    private String lastSeen;
     private String lastSeenCoordinates;
 }
