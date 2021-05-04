@@ -72,7 +72,7 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
 
   1. In a browser, access http://localhost:8080/graphiql
 
-  1. Create an tiger and return its id
+  1. Create a tiger and return its id
      ```
      mutation {
        createTiger(tigerInput: {name: "Samer Buna", dateOfBirth: "2020-12-31", lastSeen: "2021-05-01T10:11:30", lastSeenCoordinates:"3.162456/28.561538"}) {
@@ -93,7 +93,26 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
        }
      }
      ```
-
+  1. Create a tiger sighting and return its id
+     ```
+     mutation {
+       createTigerSighting(tigerSightingInput: {tigerId: 1, seen: "2021-05-01T10:11:30", coordinates:"3.162456/28.561538"}) {
+         id
+         seen
+         coordinates
+       }
+     }
+     ```
+  1. Get all tiger sightingss in `tiger-api`.
+     ```
+     {
+       getAllTigerSightings {
+         seen
+         coordinates
+       }
+     }
+     ```   
+     
 ## Shutdown
 
 - Stop applications

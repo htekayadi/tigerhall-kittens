@@ -19,10 +19,13 @@ public class Tiger {
     private String name;
 
     private LocalDate dateOfBirth;
+
     private LocalDateTime lastSeen;
+
     private String lastSeenCoordinates;
 
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
 
     @PrePersist

@@ -1,6 +1,6 @@
 package com.tigerhall.api.graphql.resolver;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.tigerhall.api.graphql.service.TigerService;
 import com.tigerhall.api.graphql.service.TigerSightingService;
 import com.tigerhall.api.model.Tiger;
@@ -12,20 +12,9 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Component
-public class Query implements GraphQLQueryResolver {
+public class TigerSightingResolver implements GraphQLResolver<TigerSighting> {
 
-    private final TigerService tigerService;
     private final TigerSightingService tigerSightingService;
-
-    // ------
-    // Tiger
-
-    public List<Tiger> getAllTigers() {
-        return tigerService.getAllTigers();
-    }
-
-    // ------
-    // TigerSighting
 
     public List<TigerSighting> getAllTigerSightings() {
         return tigerSightingService.getAllTigerSightings();

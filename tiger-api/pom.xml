@@ -17,6 +17,7 @@
     <properties>
         <graphql-spring-boot.version>5.0.2</graphql-spring-boot.version>
         <graphql-java-tools.version>5.2.4</graphql-java-tools.version>
+        <graphql-java-kickstart.version>5.10.0</graphql-java-kickstart.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <springdoc.openapi.version>1.5.5</springdoc.openapi.version>
     </properties>

@@ -8,18 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TigerNotFoundException extends RuntimeException implements GraphQLError {
+public class TigerSightingException extends RuntimeException implements GraphQLError {
 
     private final Map<String, Object> extensions = new HashMap<>();
 
-    public TigerNotFoundException(String message, Long id) {
+    public TigerSightingException(String message) {
         super(message);
-        extensions.put("invalidTigerId", id);
-    }
-
-    public TigerNotFoundException(String message, String name) {
-        super(message);
-        extensions.put("invalidTigerName", name);
     }
 
     @Override
@@ -29,7 +23,7 @@ public class TigerNotFoundException extends RuntimeException implements GraphQLE
 
     @Override
     public ErrorType getErrorType() {
-        return ErrorType.DataFetchingException;
+        return ErrorType.ValidationError;
     }
 
     @Override

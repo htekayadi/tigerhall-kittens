@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class AuthorNotFoundException extends RuntimeException {
+public class TigerNotFoundException extends RuntimeException {
 
-    public AuthorNotFoundException(String message) {
+    public TigerNotFoundException(String message) {
         super(message);
     }
 }

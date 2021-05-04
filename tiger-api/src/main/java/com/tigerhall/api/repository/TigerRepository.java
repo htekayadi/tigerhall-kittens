@@ -8,6 +8,7 @@ import java.util.List;
 public interface TigerRepository extends JpaRepository<Tiger, Long> {
 
     List<Tiger> findAllByOrderByLastSeenDesc();
+
     List<Tiger> findByNameIgnoreCase(String authorName);
 
 }

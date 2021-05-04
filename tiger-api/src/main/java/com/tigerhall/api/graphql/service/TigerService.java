@@ -8,6 +8,8 @@ public interface TigerService {
 
     List<Tiger> getAllTigers();
 
+    Tiger findById(Long id);
+
     Tiger saveTiger(Tiger tiger);
 
 }

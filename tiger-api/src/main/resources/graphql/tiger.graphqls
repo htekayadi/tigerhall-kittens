@@ -17,14 +17,31 @@ input CreateTigerInput {
 }
 
 
+# ----
+# TigerSighting
+
+type TigerSighting {
+    id: ID!
+    seen: String!
+    coordinates: String!
+}
+
+input CreateTigerSightingInput {
+    tigerId: Int!
+    seen: String!
+    coordinates: String!
+}
+
 # ---
 
 type Query {
     getAllTigers: [Tiger!]!
+    getAllTigerSightings: [TigerSighting!]!
 }
 
 # ---
 
 type Mutation {
     createTiger(tigerInput: CreateTigerInput!): Tiger!
+    createTigerSighting(tigerSightingInput: CreateTigerSightingInput!): TigerSighting!
 }

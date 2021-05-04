@@ -2,7 +2,7 @@ package com.tigerhall.api.rest.service;
 
 import com.tigerhall.api.model.Tiger;
 import com.tigerhall.api.repository.TigerRepository;
-import com.tigerhall.api.rest.exception.AuthorNotFoundException;
+import com.tigerhall.api.rest.exception.TigerNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class TigerServiceImpl implements TigerService {
 
     @Override
     public Tiger validateAndGetAuthorById(Long id) {
-        return tigerRepository.findById(id).orElseThrow(() -> new AuthorNotFoundException(String.format("Author with id '%s' not found", id)));
+        return tigerRepository.findById(id).orElseThrow(() -> new TigerNotFoundException(String.format("Author with id '%s' not found", id)));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class TigerServiceImpl implements TigerService {
         return tigerRepository.findByNameIgnoreCase(nameNormSpace)
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new AuthorNotFoundException(String.format("Author with name '%s' not found", nameNormSpace)));
+                .orElseThrow(() -> new TigerNotFoundException(String.format("Tiger with name '%s' not found", nameNormSpace)));
     }
 
     @Override
