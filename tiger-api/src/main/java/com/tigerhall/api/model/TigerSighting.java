@@ -25,4 +25,6 @@ public class TigerSighting {
     private LocalDateTime seen;
 
     private String coordinates;
+
+    private String imageUrl;
 }

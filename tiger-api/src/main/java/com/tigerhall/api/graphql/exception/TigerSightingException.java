@@ -12,8 +12,9 @@ public class TigerSightingException extends RuntimeException implements GraphQLE
 
     private final Map<String, Object> extensions = new HashMap<>();
 
-    public TigerSightingException(String message) {
+    public TigerSightingException(String message, Double distance) {
         super(message);
+        extensions.put("invalidDistance", distance);
     }
 
     @Override

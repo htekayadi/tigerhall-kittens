@@ -10,10 +10,14 @@ import com.tigerhall.api.mapper.TigerMapper;
 import com.tigerhall.api.mapper.TigerSightingMapper;
 import com.tigerhall.api.model.Tiger;
 import com.tigerhall.api.model.TigerSighting;
+import graphql.schema.DataFetchingEnvironment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.Part;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -41,9 +45,12 @@ public class Mutation implements GraphQLMutationResolver {
         Tiger tiger = tigerService.findById(tigerSightingInput.getTigerId());
         validateDistance(tiger.getLastSeenCoordinates(), tigerSightingInput.getCoordinates());
 
-        tiger.setLastSeen(LocalDateTime.parse(tigerSightingInput.getSeen()));
-        tiger.setLastSeenCoordinates(tigerSightingInput.getCoordinates());
-        tigerService.saveTiger(tiger);
+        LocalDateTime seen = LocalDateTime.parse(tigerSightingInput.getSeen());
+        if(tiger.getLastSeen().isBefore(seen)) {
+            tiger.setLastSeen(seen);
+            tiger.setLastSeenCoordinates(tigerSightingInput.getCoordinates());
+            tigerService.saveTiger(tiger);
+        }
 
         TigerSighting tigerSighting = tigerSightingMapper.toTigerSighting(tigerSightingInput);
         tigerSighting.setTiger(tiger);
@@ -61,7 +68,7 @@ public class Mutation implements GraphQLMutationResolver {
         double dis = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
         if (dis < NEW_SIGHTING_MININUM_DISTANCE) {
-            throw new TigerSightingException(String.format("Tiger sighting is within %d kilometers of previous sighting.", NEW_SIGHTING_MININUM_DISTANCE));
+            throw new TigerSightingException(String.format("Tiger sighting is within %d kilometers of previous sighting.", NEW_SIGHTING_MININUM_DISTANCE), dis);
         }
     }
 }

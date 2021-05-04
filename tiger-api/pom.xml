@@ -18,8 +18,10 @@
         <graphql-spring-boot.version>5.0.2</graphql-spring-boot.version>
         <graphql-java-tools.version>5.2.4</graphql-java-tools.version>
         <graphql-java-kickstart.version>5.10.0</graphql-java-kickstart.version>
+        <com.amazonaws.s3.version>1.11.837</com.amazonaws.s3.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <springdoc.openapi.version>1.5.5</springdoc.openapi.version>
+        <org.imgscalr.version>4.2</org.imgscalr.version>
     </properties>
 
     <dependencies>
@@ -43,10 +45,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
 
         <!-- GraphQL -->
         <dependency>
@@ -64,6 +62,13 @@
             <artifactId>graphql-java-tools</artifactId>
             <version>${graphql-java-tools.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${com.amazonaws.s3.version}</version>
+        </dependency>
+
 
         <!-- SpringDoc OpenApi -->
         <dependency>
@@ -85,6 +90,14 @@
             <artifactId>gson</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>${org.imgscalr.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

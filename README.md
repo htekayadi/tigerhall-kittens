@@ -97,19 +97,21 @@ Inside `tigerhall-kittens`, run the following Maven commands in different termin
   1. Create a tiger sighting and return its id
      ```
      mutation {
-       createTigerSighting(tigerSightingInput: {tigerId: 1, seen: "2021-05-01T10:11:30", coordinates:"3.162456/28.561538"}) {
+       createTigerSighting(tigerSightingInput: {tigerId: 1, seen: "2021-05-01T10:11:30", coordinates: "22.162456/28.561538", imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/001/295/929/small/sf-tiger-02-video.jpg"}) {
          id
          seen
          coordinates
+         imageUrl
        }
      }
      ```
-  1. Get all tiger sightingss in `tiger-api`.
+  1. Get all sightings of a tiger in `tiger-api`.
      ```
      {
        getTigerSightings(tigerId: 1) {
          seen
          coordinates
+         imageUrl
        }
      }
      ```   

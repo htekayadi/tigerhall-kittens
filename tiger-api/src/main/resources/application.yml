@@ -6,8 +6,6 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/tigerhallkittensdb?characterEncoding=UTF-8&serverTimezone=UTC
     username: tigerhalluser
     password: tigerhallpass
-  sleuth:
-    sampler.probability: 1.0
 
 app:
   cors:
@@ -32,6 +30,13 @@ graphiql: # default values
   endpoint:
     graphql: /graphql
   enabled: true
+
+aws:
+  region: us-east-2
+  s3:
+    bucket: tiger-image
+    uploadThreshold: 5
+  endpointUrl: https://tiger-image.s3.us-east-2.amazonaws.com/
 
 management:
   endpoints:

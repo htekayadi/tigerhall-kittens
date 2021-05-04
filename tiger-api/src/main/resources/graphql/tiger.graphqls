@@ -24,12 +24,14 @@ type TigerSighting {
     id: ID!
     seen: String!
     coordinates: String!
+    imageUrl: String!
 }
 
 input CreateTigerSightingInput {
     tigerId: Int!
     seen: String!
     coordinates: String!
+    imageUrl: String!
 }
 
 # ---

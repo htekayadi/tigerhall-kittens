@@ -8,4 +8,5 @@ public class TigerSightingInput {
     private Long tigerId;
     private String seen;
     private String coordinates;
+    private String imageUrl;
 }
